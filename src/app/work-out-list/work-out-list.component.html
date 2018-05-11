@@ -1,0 +1,20 @@
+<section id="workOutListSection">
+  <h3>Work Out List</h3>
+  <table class="table table-bordered table-responsive">
+    <tr>
+      <th>Title</th>
+      <th>Calories</th>
+      <th>Action</th>
+    </tr>
+
+    <tr *ngFor="let workOut of workOuts">
+      <td><a [routerLink]="['/txnList/' + workOut.workoutId + '/' + workOut.workOutTitle]">{{workOut.workOutTitle}}</a></td>
+      <td>{{workOut.calsBurntPerUnit}} as per {{workOut.unit}}</td>
+      <td>
+        <a href="#" class="btn-sm btn-danger">delete</a>
+        <a href="#" class="btn-sm btn-primary">edit</a>
+      </td> 
+
+    </tr>
+  </table>
+</section>

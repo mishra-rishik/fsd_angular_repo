@@ -1,0 +1,38 @@
+<div class="row">
+  <section id="newWorkOutTxnSection" class="col-md-4">
+    <h4>Work Out : <strong>{{workOutTitle}}</strong></h4>
+    <button id="startTimeBtn" class="mtn-md btn-primary" (click)="startTimer()">Start</button>
+    <button id="stopTimeBtn" class="mtn-md btn-info" (click)="stopTimer()">Stop</button>
+    <h3>{{timer.timerData.hours|number:'2.0'}}:
+         {{timer.timerData.minutes|number:'2.0'}}:
+         {{timer.timerData.seconds|number:'2.0'}}
+    </h3>
+    
+  </section>
+
+  <section id="workOutTxnListSection" class="col-md-8">
+    <h3>Work Out History</h3>
+    <table class="table table-bordered table-responsive">
+      <tr>
+        <th>#</th>
+        <th>Date</th>
+        <th>Period</th>
+        <th>Duration</th>
+        <th>Calories Burnt</th>
+      </tr>
+  
+      <tr *ngFor="let txn of transactions">
+        <td>{{txn.transactionId}}</td>
+        <td>{{txn.startTime|date:'dd-MMM-yyyy'}}</td>
+        <td>{{txn.startTime|date:'hh:mm:ss'}} to {{txn.endTime|date:'hh:mm:ss'}}</td>
+        <td>{{txn.endTime - txn.startTime}}</td>
+        <td>{{txn.calBurnt}}</td>
+        
+      </tr>
+    </table>
+  </section>
+
+</div>
+
+
+
